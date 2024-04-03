@@ -3,11 +3,13 @@ const endpoint =
 
 const cities = [];
 
+//fetch data from the endpoint
 fetch(endpoint)
   .then((blob) => blob.json())
   .then((data) => cities.push(...data));
 // console.log(cities);
 
+//function to find matches from user input
 function findMatches(wordToMatch, cities) {
   return cities.filter((place) => {
     //figure out if city or state matches search
@@ -15,3 +17,5 @@ function findMatches(wordToMatch, cities) {
     return place.city.match(regex) || place.state.match(regex);
   });
 }
+
+//function to display matches
