@@ -18,6 +18,11 @@ function findMatches(wordToMatch, cities) {
   });
 }
 
+//add commas between city, state and population number
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 //function to display matches
 function displayMatches() {
   //   console.log(this.value);
@@ -37,7 +42,7 @@ function displayMatches() {
       return `
     <li>
         <span class="name">${cityName}, ${stateName}</span>
-        <span class="population">${place.population}</span>
+        <span class="population">${numberWithCommas(place.population)}</span>
     </li>
     `;
     })
